@@ -1,5 +1,4 @@
 # TP1 : La découverte de Docker
-
 Noms des auteurs :  Antoine Brazier
 Date de réalisation : 2025/02/10
 
