@@ -9,25 +9,82 @@ Documentez les commandes importantes de cette section.
 
 Quelles sont les différences entre les deux types de volumes utilisés ici ?  Dans quel cas utiliser l'un plutôt que l'autre? 
 
+
+<source src="/TP administration/images/TP_2_du_1_2_image_1.png" type="screenshoot">
+
+<source src="/TP administration/images/TP_2_du_1_2_image_2.png" type="screenshoot">
+
+<source src="/TP administration/images/TP_2_du_1_2_image_3.png" type="screenshoot">
+
+Bind Mount lie directement un dossier local, alors qu’un Volume Docker est géré par Docker et reste même après la suppression l'un des deux contenenaire.
+
+Bind Mount : pour le développement (modifications en direct).
+Volume Docker : pour le stockage partager et le stockage reste tant qu'il y a un conteneur de "connecter".
+
 ## 2. Les réseaux Docker
 
 Documentez les commandes importantes de cette section. 
 ### 2.1. Réseau par défaut
 
 1.  Quelles sont les interfaces réseau et adresses IP de chaque container? Vous pouvez trouvez cette information soit depuis l'hôte avec un ```docker inspect```(cfr TP1), soit depuis le container lui-même.  Note dans ce dernier cas : Si la commande ```ip addr```n'est pas disponible, installez le package ```iproute2```. 
+web-volume : 
+    - "IPAddress": "172.17.0.4"
+<source src="/TP administration/images/TP_2_du_2_1_image_2.png" type="screenshoot">
+web-volume-80: 
+    - "IPAddress": "172.17.0.5",
+    
+<source src="/TP administration/images/TP_2_du_2_1_image_1.png" type="screenshoot">
+
 2. Les containers peuvent-ils se joindre via ```ping``` ? 
+Oui,
+<source src="/TP administration/images/TP_2_du_2_1_image_3.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_2_1_image_4.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_2_1_image_5.png" type="screenshoot">
+
 3. Les containers ont-ils accès à Internet ? 
+Oui,
+<source src="/TP administration/images/TP_2_du_2_1_image_6.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_2_1_image_7.png" type="screenshoot">
+
 4. Est-ce une bonne idée d'utiliser ce réseau par défaut?  Quels en sont les avantages et les inconvénients ?  
 
 ### 2.2. Réseaux définis par l'utilisateur 
 
 1. Le nouveau container ajouté sur le réseau ```my-net``` peut-il contacter les deux précédents (liés au réseau bridge par défaut)?  A-t-il accès à Internet?
+Non, car il ne peut pas contacter les deux autres contenaires car ils ne sont pas dans le meme réseau.
+Cependant,
+<source src="/TP administration/images/TP_2_du_2_2_image_1.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_2_2_image_2.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_2_2_image_3.png" type="screenshoot">
+
+
 2. Quels sont les différences entre ce nouveau réseau et le bridge par défaut?  Quels en sont les avantages et inconvénients ? 
+screen : sur docker network inspect 
+<source src="/TP administration/images/TP_2_du_2_2_image_4.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_2_2_image_5.png" type="screenshoot">
+
 
 ## 3. Docker-compose
 
 1. Qu'avez-vous observé lors de cette première expérience avec Docker Compose ?  Faites un court bilan sur base de screenshots. 
+
+<source src="3/docker-compose.yml" type="file">
+
+<source src="/TP administration/images/TP_2_du_3_image_1.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_3_image_2.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_3_image_3.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_3_image_4.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_3_image_5.png" type="screenshoot">
+
 2. Documentez les commandes importantes. 
+
+docker compose up
+
+docker inspect [container | network]
+
+ping [IP | name]
+
+docker compose down
 
 ## 4. Exercices récapitulatifs
 
