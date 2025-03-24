@@ -32,7 +32,7 @@ Indiquez également soigneusement, pour chaque point, comment vous avez **valid�
 ## 2. Mise en place de l'authentification SSH par clé
 
 Indiquez si cette étape est mise en place, et documentez vos commandes.  
-
+<!-- fait mes il manque les screens -->
 ## 3.  Prise en main du VPS
 
 Indiquez sur quel VPS un site web a été déployé. 

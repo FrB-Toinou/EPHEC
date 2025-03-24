@@ -1,0 +1,51 @@
+version: "3"
+name: tp2_4_1
+
+services:
+  ContainerA:
+    image: custom-nginx  
+    ports:
+      - 80:80    
+    networks:
+      - Reseau1  
+    volumes: 
+      - Volume1:/app
+      - .:/src
+  ContainerB: 
+    image: custom-nginx
+    ports:
+      - 81:80
+    networks:
+      - Reseau1
+      - Reseau2
+    volumes:
+    - Volume1:/app1
+
+    - Volume2:/app2
+
+  ContainerC:
+    image: custom-nginx  
+    ports:
+      - 82:80    
+    networks:
+      - Reseau2  
+    volumes: 
+      - Volume2:/app
+
+volumes:
+  Volume1:
+
+  Volume2:
+
+networks:
+  Reseau1: 
+    driver: bridge 
+    ipam: 
+      config: 
+        - subnet: 10.0.1.0/24
+
+  Reseau2: 
+    driver: bridge 
+    ipam: 
+      config: 
+        - subnet: 10.0.2.0/24

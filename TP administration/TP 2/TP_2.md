@@ -91,17 +91,40 @@ docker compose down
 ### 4.1. Mise en application simple
 
  Votre infrastructure est-elle conforme à ce qui était attendu?  Comment avez-vous pu la valider?  Donnez les commandes utilisées et illustrez le résultat par des screenshots. 
-
+<source src="/TP administration/images/TP_2_du_4_1_image_1.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_2.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_3.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_4.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_5.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_6.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_7.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_8.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_9.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_10.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_1_image_11.png" type="screenshoot">
 ### 4.2. Exemple du cours théorique
 
 1. Dans cette infrastructure, comment les données sont-elles partagées?  Via des Bind Mounts ou des Volumes?  Pourquoi ? 
-2. Quels sont les spécificités de chaque container? 
-3. Une fois démarrée, l'infrastructure est-elle conforme à ce qui était attendu?  Comment avez-vous pu la valider?  Donnez les commandes utilisées et illustrez le résultat par des screenshots. 
 
+le web et la db sont sur le même réseau donc ils peuvent communiquer entre eux. de plus dans la zone docker possède un volume. néanmoins l'hote peut voir accès via bind mounts du dossier src et /app.
+
+
+2. Quels sont les spécificités de chaque container? 
+Le container WEB a pour rôle d'hébergé une application web, et le container DB a pour rôle de gérer la base de données MySQL.
+
+3. Une fois démarrée, l'infrastructure est-elle conforme à ce qui était attendu?  Comment avez-vous pu la valider?  Donnez les commandes utilisées et illustrez le résultat par des screenshots. 
+<source src="/TP administration/images/TP_2_du_4_2_image_1.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_2_image_2.png" type="screenshoot">
+<source src="/TP administration/images/TP_2_du_4_2_image_3.png" type="screenshoot">
 
 ### 4.3. Exemple du tutoriel Docker
 
 1. Quelles sont vos observations suite à la réalisation de ce tutoriel ? 
-2. Sur quelle base les containers sont-ils lancés ? 
-3. Qu'avez-vous appris de nouveau ? 
+J'ai observer qu'on peut lancer n'importent quel type d'application via aux les containers.
 
+2. Sur quelle base les containers sont-ils lancés ? 
+Les containers sont lancés sur une base Python. et Redis.
+
+3. Qu'avez-vous appris de nouveau ? 
+On peut découper le fichier compose.yaml et en plusierus fichiers tels que des programmations en utilisant le mot "include" pour appeler le fichier.
+develop watch :  permet de faire des modifications sans avoir besoin de relancer le container.
